@@ -1,9 +1,8 @@
-<script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+<script>
+
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <title>Pokemon Tracker</title>
+  <h1>Pokemon!</h1>
 </template>
