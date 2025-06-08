@@ -14,8 +14,8 @@
 </script>
 
 <template>
-  <Title class="text-5xl font-bold gap-4 py-5 ">
-    <h1>Your Pokemon!</h1>
+  <Title>
+    <h1 class="text-5xl font-bold gap-4 text-gray-200">Your Pokemon!</h1>
   </Title>
   <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 px-25">
     <div

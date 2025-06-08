@@ -4,7 +4,7 @@
 
 <template>
   <Title>
-    <h1 class="flex flex-col items-center font-bold text-5xl">Pokemon Tracker</h1>
+    <h1 class="flex flex-col items-center font-bold text-5xl text-gray-200 text-shadow-accent">Pokemon Tracker</h1>
   </Title>
 
 </template>
