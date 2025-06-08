@@ -55,7 +55,7 @@
     <div
       v-for="pokemon in availablePokemon.pokemonList"
       :id="pokemon.name"
-      class="border rounded p-2 flex flex-col items-center"
+      class="border rounded p-2 flex flex-col items-center hover:shadow"
       >
       <label for="pokemonURL" class="block text-sm font-semibold text-gray-700">{{pokemon.name}}</label>
       <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonAPIID(pokemon.url)}.png`"/>

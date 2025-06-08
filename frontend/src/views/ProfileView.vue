@@ -17,7 +17,7 @@
     <div
       v-for="pokemon in ownedPokemon.pokemonList"
       :key="pokemon.id"
-      class="border rounded p-2 flex flex-col items-center"
+      class="border rounded p-2 flex flex-col items-center hover:shadow"
     >
       {{pokemon.nickname}}
       <img :src=pokemon.image_url>
