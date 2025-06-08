@@ -1,7 +1,7 @@
 <script setup> import { onMounted } from 'vue';
   import { ownedPokemonStore } from '@/stores/pokemon'
   import PokemonCard from '@/components/PokemonCard.vue'
-  import Header from '@/components/Header.vue'
+  import Title from '@/components/Title.vue'
   const ownedPokemon = ownedPokemonStore();
 
   onMounted(async () => {
@@ -14,15 +14,15 @@
 </script>
 
 <template>
-  <Header class="text-5xl font-bold gap-4 py-5 ">
+  <Title class="text-5xl font-bold gap-4 py-5 ">
     <h1>Your Pokemon!</h1>
-  </Header>
-  <div class="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-4 px-5">
+  </Title>
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 px-25">
     <div
       v-for="pokemon in ownedPokemon.pokemonList"
       :key="pokemon.id"
     >
-    <PokemonCard :name=pokemon.nickname :image_url=pokemon.image_url />
+    <PokemonCard :name=pokemon.nickname :image_url=pokemon.image_url :will_capitalize=false />
     </div>
   </div>
 </template>
