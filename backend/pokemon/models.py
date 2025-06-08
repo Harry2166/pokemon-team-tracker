@@ -8,5 +8,5 @@ class Pokemon(models.Model):
     gender = models.BooleanField() # true = male, false = female
     image_url = models.URLField()
     captured_at = models.DateTimeField(auto_now_add=True)
-    shiny = models.BooleanField(default=False)
+    shiny = models.BooleanField(default=False) # true = shiny, false = not shiny
 

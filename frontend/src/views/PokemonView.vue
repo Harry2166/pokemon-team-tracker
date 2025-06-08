@@ -32,22 +32,23 @@
     if (nickname == "" || nickname  == null) {
       console.log("no name given")
     } else {
-      postPokemonToDB(pokemon.url, getPokemonAPIID(pokemon.url), nickname);
+      postPokemonToDB(pokemon.name, pokemon.url, getPokemonAPIID(pokemon.url), nickname);
     }
   };
 
-  const postPokemonToDB = async (URL, pokeAPI_ID, nickname) => {
+  const postPokemonToDB = async (name, URL, pokeAPI_ID, nickname) => {
     const postData = {
+      species_name: name,
       pokeapi_id: pokeAPI_ID,
       image_url:
       `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeAPI_ID}.png`,
       nickname: nickname,
-      gender: true
+      gender: true,
+      shiny: false,
     }
     try {
       const response = await axios.post('http://127.0.0.1:8000/pokemon/insert/', postData)
       ownedPokemon.fetchPokemon();
-      pokemonNicknames.value[URL] = ""
       window.alert("Pokemon added!")
     } catch {
       console.error(error)
