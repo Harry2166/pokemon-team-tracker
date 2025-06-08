@@ -37,20 +37,27 @@
   };
 
   const postPokemonToDB = async (name, URL, pokeAPI_ID, nickname) => {
+    const shinyOdds = Math.floor(Math.random() * 8192)
+    const genderOdds = Math.floor(Math.random() * 2)
     const postData = {
       species_name: name,
       pokeapi_id: pokeAPI_ID,
       image_url:
-      `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeAPI_ID}.png`,
+      shinyOdds < 8191 ?
+      `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeAPI_ID}.png` :
+      `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pokeAPI_ID}.png`,
       nickname: nickname,
-      gender: true,
-      shiny: false,
+      gender: genderOdds < 1 ? false : true,
+      shiny: shinyOdds < 8191 ? false: true
     }
     try {
       const response = await axios.post('http://127.0.0.1:8000/pokemon/insert/', postData)
       ownedPokemon.fetchPokemon();
       window.alert("Pokemon added!")
-    } catch {
+      if (shinyOdds >= 8191) {
+        window.alert("You caught a shiny!!!")
+      }
+    } catch(error) {
       console.error(error)
       window.alert("Pokemon not added!")
     }
