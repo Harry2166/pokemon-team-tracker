@@ -15,14 +15,15 @@
 
 <template>
   <Title>
-    <h1 class="text-5xl font-bold gap-4 text-gray-200">Your Pokemon!</h1>
+    <h1 class="text-5xl font-bold gap-4 text-gray-200 rounded-3xl bg-black/50 px-3 py-3">Your Pokemon!</h1>
   </Title>
   <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 px-25">
     <div
       v-for="pokemon in ownedPokemon.pokemonList"
       :key="pokemon.id"
     >
-    <PokemonCard :name=pokemon.nickname :image_url=pokemon.image_url :will_capitalize=false />
+    <PokemonCard :name=pokemon.nickname :image_url=pokemon.image_url :will_capitalize=false
+    :can_click = false />
     </div>
   </div>
 </template>
