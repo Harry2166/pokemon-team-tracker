@@ -1,5 +1,6 @@
 <script setup> import { onMounted } from 'vue';
   import { ownedPokemonStore } from '@/stores/pokemon'
+  import PokemonCard from '@/components/PokemonCard.vue'
   const ownedPokemon = ownedPokemonStore();
 
   onMounted(async () => {
@@ -17,10 +18,8 @@
     <div
       v-for="pokemon in ownedPokemon.pokemonList"
       :key="pokemon.id"
-      class="border rounded p-2 flex flex-col items-center hover:shadow"
     >
-      {{pokemon.nickname}}
-      <img :src=pokemon.image_url>
+    <PokemonCard :name=pokemon.nickname :image_url=pokemon.image_url />
     </div>
   </div>
 </template>
