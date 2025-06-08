@@ -25,7 +25,6 @@ export const ownedPokemonStore = defineStore('ownedPokemon', {
 
 export const availablePokemonStore = defineStore('availablePokemon',{
   state: () => ({
-    output: {},
     pokemonList: [],
     loading: false
   }),
@@ -44,5 +43,20 @@ export const availablePokemonStore = defineStore('availablePokemon',{
     }
   }
 
+})
+
+export const pokemonGenerationStore = defineStore('pokemonGeneration',{
+  state: () => ({
+    generation : 1
+  }),
+
+  actions: {
+    increaseGeneration () {
+      if (this.generation < 6) { this.generation += 1 }
+    },
+    decreaseGeneration () {
+     if (this.generation > 1) { this.generation -= 1 }
+    }
+  }
 })
 
