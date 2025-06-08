@@ -2,6 +2,7 @@
   import { ref, onMounted, watch } from 'vue';
   import { availablePokemonStore, ownedPokemonStore, pokemonGenerationStore } from '@/stores/pokemon'
   import PokemonCard from '@/components/PokemonCard.vue'
+  import Header from '@/components/Header.vue'
   import axios from 'axios'
 
   const ownedPokemon = ownedPokemonStore();
@@ -56,12 +57,12 @@
 </script>
 
 <template>
-  <div class="flex flex-row items-center space-x-4 mb-4">
+  <Header>
     <button @click="pokemonGeneration.decreaseGeneration" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded shadow">-</button>
-    <h1 class="text-5xl">Generation {{pokemonGeneration.generation}}</h1>
+    <h1 class="text-5xl font-bold">Generation {{pokemonGeneration.generation}}</h1>
     <button @click="pokemonGeneration.increaseGeneration" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded shadow">+</button>
-  </div>
-  <div class="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-4">
+  </Header>
+  <div class="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-4 px-5">
     <div
       v-for="pokemon in availablePokemon.pokemonList"
       :id="pokemon.name"

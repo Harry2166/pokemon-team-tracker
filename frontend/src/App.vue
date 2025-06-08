@@ -10,10 +10,10 @@
       <img src="@/assets/images/background.jpg" alt="background" class="w-full h-full object-cover" />
     </div>
     <div class="absolute inset-0 bg-white/85"></div>
-    <div class="relative z-10 items-center justify-center w-full">
+    <div class="relative z-10 items-center w-full flex flex-col">
       <NavBar/>
     </div>
-    <div class="relative z-10 flex flex-col items-center justify-center min-h-screen">
+    <div class="relative z-10 min-h-screen">
       <RouterView/>
     </div>
   </div>
