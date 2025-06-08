@@ -52,7 +52,7 @@ export const pokemonGenerationStore = defineStore('pokemonGeneration',{
 
   actions: {
     increaseGeneration () {
-      if (this.generation < 10) { this.generation += 1 }
+      if (this.generation < 9) { this.generation += 1 }
     },
     decreaseGeneration () {
      if (this.generation > 1) { this.generation -= 1 }
