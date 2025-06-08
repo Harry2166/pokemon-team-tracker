@@ -15,7 +15,8 @@
 </script>
 
 <template>
-  <div class="border rounded p-2 flex flex-col items-center hover:shadow" @click="emit('click')">
+  <div class="transform border rounded p-2 flex flex-col items-center motion-safe:hover:scale-110
+    hover:bg-red-400 hover:border-gray-500" @click="emit('click')">
       {{name}}
       <img :src=image_url>
       <slot/>
