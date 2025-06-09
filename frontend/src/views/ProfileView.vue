@@ -1,8 +1,11 @@
-<script setup> import { onMounted } from 'vue';
-  import { ownedPokemonStore } from '@/stores/pokemon'
+<script setup>
+  import { onMounted } from 'vue';
+  import { useRouter } from 'vue-router';
+  import { profilePokemonStore, ownedPokemonStore } from '@/stores/pokemon'
   import PokemonCard from '@/components/PokemonCard.vue'
   import Title from '@/components/Title.vue'
   const ownedPokemon = ownedPokemonStore();
+  const profilePokemon = profilePokemonStore();
 
   onMounted(async () => {
       if(!ownedPokemon.pokemonList.length) {
@@ -10,6 +13,13 @@
       }
     }
   )
+
+  const router = useRouter();
+  const goToPokemonProfile = (pokemon) => {
+    profilePokemon.placePokemon(pokemon.id, pokemon.nickname, pokemon.species_name, pokemon.gender,
+    pokemon.shiny, pokemon.image_url)
+    router.push(`/profile/${pokemon.id}`)
+  }
 
 </script>
 
@@ -23,7 +33,8 @@
       :key="pokemon.id"
     >
     <PokemonCard :name=pokemon.nickname :image_url=pokemon.image_url :will_capitalize=false
-    :can_click = false />
+    @click="goToPokemonProfile(pokemon)" />
     </div>
   </div>
 </template>
+

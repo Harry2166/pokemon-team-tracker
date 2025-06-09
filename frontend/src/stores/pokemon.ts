@@ -2,6 +2,28 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 
+export const profilePokemonStore = defineStore('profilePokemon', {
+  state: () => ({
+    id: "",
+    nickname: "",
+    species_name: "",
+    gender: false,
+    shiny: false,
+    image_url: ""
+  }),
+
+  actions: {
+    placePokemon(id: string, nickname: string, species_name: string, gender: boolean, shiny: boolean, image_url: string) {
+      this.id = id
+      this.nickname = nickname
+      this.species_name = species_name
+      this.gender = gender
+      this.shiny = shiny
+      this.image_url = image_url
+    },
+  }
+})
+
 export const ownedPokemonStore = defineStore('ownedPokemon', {
   state: () => ({
     pokemonList: [],
