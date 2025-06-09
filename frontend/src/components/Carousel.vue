@@ -15,7 +15,7 @@
 </script>
 
 <template>
-  <Carousel class="relative w-full max-w-xs">
+  <Carousel class="relative w-full max-w-xs" :opts="{loop: true}">
     <CarouselContent>
       <CarouselItem
         v-for="pokemon in ownedPokemon.pokemonList"

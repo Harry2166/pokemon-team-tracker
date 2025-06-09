@@ -27,8 +27,8 @@
 
 <template>
   <div
-    class="transform border rounded p-2 flex flex-col items-center bg-white/50 border-red-400"
-   :class = "{'motion-safe:hover:scale-110 hover:bg-red-400 hover:border-gray-500' : props.can_click}"
+    class="transform border rounded p-2 flex flex-col items-center bg-white/50 border-red-500"
+   :class = "{'hover:scale-110 hover:bg-red-500 hover:border-gray-500' : props.can_click}"
    @click="props.can_click && emit('click')"
   >
       {{ shownName }}
