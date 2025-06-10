@@ -1,6 +1,23 @@
 
 <script setup>
-  import { RouterLink, RouterView } from 'vue-router'
+  import { useRouter, RouterLink, RouterView } from 'vue-router'
+  import { useAuthStore } from '@/stores/auth'
+  import { onMounted } from 'vue'
+
+  const authStore = useAuthStore()
+  const router = useRouter()
+
+  const logout = async () => {
+    try {
+      await authStore.logout(router)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  onMounted(async () => {
+    await authStore.fetchUser()
+  })
 </script>
 
 <template>
@@ -10,7 +27,7 @@
         <RouterLink to="/pokemon" class="px-5 font-medium hover:text-red-800">Catch Pokemon</RouterLink>
         <RouterLink to="/profile" class="px-5 font-medium hover:text-red-800">Profile</RouterLink>
         <div class="absolute right-5">
-          Made by <a href="https://github.com/Harry2166" target="_blank" class="underline"> Harry2166</a>
+          <button @click='logout' class="hover:text-red-800">Logout</button>
         </div>
       </div>
     </header>
