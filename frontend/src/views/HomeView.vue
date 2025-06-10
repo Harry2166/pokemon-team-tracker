@@ -12,8 +12,13 @@
       <h1 class="flex flex-col items-center font-bold text-5xl text-gray-200 text-shadow-accent
         rounded-3xl px-3 py-3 bg-black/50">Please Register or Log In</h1>
     </Title>
-    <RouterLink to="/login" class="px-5 font-bold text-5xl hover:text-red-800">Login</RouterLink>
-    <RouterLink to="/register" class="px-5 font-bold text-5xl hover:text-red-800">Register</RouterLink>
+    <div class="flex flex-col items-center">
+      <RouterLink to="/login" class="px-3 font-bold text-5xl hover:text-black hover:bg-white rounded-3xl
+      py-3 bg-black/50 text-white">Login</RouterLink>
+      <br>
+      <RouterLink to="/register" class="px-3 font-bold text-5xl hover:text-black hover:bg-white
+      rounded-3xl py-3 bg-black/50 text-white">Register</RouterLink>
+    </div>
   </div>
   <div v-else>
     <Title>
