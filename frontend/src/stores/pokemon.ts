@@ -21,7 +21,8 @@ export const profilePokemonStore = defineStore('profilePokemon', {
       this.shiny = shiny
       this.image_url = image_url
     },
-  }
+  },
+    persist: true
 })
 
 export const ownedPokemonStore = defineStore('ownedPokemon', {
@@ -79,6 +80,7 @@ export const pokemonGenerationStore = defineStore('pokemonGeneration',{
     decreaseGeneration () {
      if (this.generation > 1) { this.generation -= 1 }
     }
-  }
+  },
+  persist: true
 })
 
