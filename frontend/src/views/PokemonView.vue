@@ -84,11 +84,13 @@
 
 <template>
   <Title>
-    <button @click="pokemonGeneration.decreaseGeneration" class="bg-red-500 hover:bg-gray-700
-                    text-white font-semibold px-4 py-2 rounded shadow"><<</button>
+    <button @click="pokemonGeneration.decreaseGeneration" class="hover:bg-gray-700
+                    text-white font-semibold px-4 py-2 rounded shadow" :class="{ 'bg-gray-700': pokemonGeneration.generation === 1, 'bg-red-500': pokemonGeneration.generation !== 1 }"><<</button>
     <h1 class="text-5xl font-bold text-white bg-black/50 px-3 py-3 rounded-3xl">Generation {{pokemonGeneration.generation}}</h1>
-    <button @click="pokemonGeneration.increaseGeneration" class="bg-red-500 hover:bg-gray-700
-                    text-white font-semibold px-4 py-2 rounded shadow">>></button>
+    <button @click="pokemonGeneration.increaseGeneration" class="hover:bg-gray-700
+                    text-white font-semibold px-4 py-2 rounded shadow" :class="{ 'bg-gray-700':
+                    pokemonGeneration.generation === 9, 'bg-red-500': pokemonGeneration.generation
+                    !== 9 }">>></button>
   </Title>
   <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 px-25">
     <div
