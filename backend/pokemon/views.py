@@ -17,8 +17,7 @@ def get_all_pokemon(request):
 @permission_classes([IsAuthenticated])
 def insert_pokemon(request):
     request_data_copy = request.data.copy()
-    request_data_copy['user'] = request.user
-
+    request_data_copy['user'] = request.user.id
     serialized_pokemon = PokemonSerializer(data=request_data_copy)
     if serialized_pokemon.is_valid():
         serialized_pokemon.save()

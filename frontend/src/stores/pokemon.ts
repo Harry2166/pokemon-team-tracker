@@ -35,13 +35,18 @@ export const ownedPokemonStore = defineStore('ownedPokemon', {
     async fetchPokemon() {
       this.loading = true
       try {
-        const res = await axios.get('http://127.0.0.1:8000/pokemon/get_all/')
+        const res = await axios.get('http://127.0.0.1:8000/pokemon/get_all/', {
+          withCredentials: true
+        })
         this.pokemonList = res.data
       } catch (err) {
         console.error('Failed to fetch Pokémon:', err)
       } finally {
         this.loading = false
       }
+    },
+    resetOwnedPokemonList() {
+      this.pokemonList = []
     }
   }
 })

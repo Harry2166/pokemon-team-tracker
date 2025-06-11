@@ -2,14 +2,17 @@
 <script setup>
   import { useRouter, RouterLink, RouterView } from 'vue-router'
   import { useAuthStore } from '@/stores/auth'
+  import { ownedPokemonStore } from '@/stores/pokemon'
   import { onMounted } from 'vue'
 
   const authStore = useAuthStore()
+  const ownedPokemon = ownedPokemonStore()
   const router = useRouter()
 
   const logout = async () => {
     try {
       await authStore.logout(router)
+      await ownedPokemon.resetOwnedPokemonList()
     } catch (error) {
       console.error(error)
     }
