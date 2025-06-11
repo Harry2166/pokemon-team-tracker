@@ -63,7 +63,7 @@ export const useAuthStore = defineStore('auth', {
           this.saveState()
           if (router) {
             await router.push({
-              name: 'login',
+              name: 'loginandregister',
             })
           }
         }

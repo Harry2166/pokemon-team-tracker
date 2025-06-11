@@ -68,6 +68,9 @@ export const availablePokemonStore = defineStore('availablePokemon',{
       } finally {
         this.loading = false
       }
+    },
+    resetAvailablePokemonList() {
+      this.pokemonList = []
     }
   }
 
@@ -84,6 +87,9 @@ export const pokemonGenerationStore = defineStore('pokemonGeneration',{
     },
     decreaseGeneration () {
      if (this.generation > 1) { this.generation -= 1 }
+    },
+    resetGeneration () {
+      this.generation = 1;
     }
   },
   persist: true
