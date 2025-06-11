@@ -12,6 +12,7 @@
 
   const profilePokemon = profilePokemonStore();
   const allEnglishPokedexEntries = ref([]);
+  const isLoading = ref(true)
   const entry = ref("")
   const entryGeneration = ref("")
 
@@ -20,7 +21,7 @@
     const entryIndex = Math.floor(Math.random() * allEnglishPokedexEntries.value.length);
     entry.value = allEnglishPokedexEntries.value[entryIndex].flavor_text
     entryGeneration.value = allEnglishPokedexEntries.value[entryIndex].version.name
-    console.log(entryGeneration.value)
+    isLoading.value = !isLoading.value
   }
 
   const getPokedexEntry = async () => {
@@ -47,7 +48,7 @@
     <h2 class="text-3xl font-semibold text-gray-200 rounded-3xl bg-black/50 px-3 py-3 flex flex-col
       items-center">Go back to your profile!</h2>
   </div>
-  <div v-else class="flex flex-col items-center">
+  <div v-else v-if="!isLoading" class="flex flex-col items-center">
     <h2 class="text-3xl font-semibold text-gray-200 rounded-3xl bg-black/50 px-3 py-3 flex flex-col
     items-center">{{profilePokemon.nickname}}</h2>
     <div class="flex flex-col items-center">

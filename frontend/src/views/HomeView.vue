@@ -28,7 +28,7 @@
   <div class="flex flex-col items-center">
       <h2 class="text-white font-semibold text-3xl rounded-3xl text-center bg-black/50 py-3 px-3
         m-3">What is this?</h2>
-      <p class="text-gray-200 bg-black/50 rounded-3xl text-center px-5 text-2xl">
+      <p class="text-gray-200 bg-black/50 rounded-3xl text-center px-5 py-5 text-2xl">
         Pokemon Tracker is a project that lets you track the pokemon that you have caught, right on
         the web!
 
