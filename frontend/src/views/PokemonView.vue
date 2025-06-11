@@ -9,6 +9,12 @@
   const availablePokemon = availablePokemonStore();
   const pokemonGeneration = pokemonGenerationStore();
 
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`
+    const parts = value.split(`; ${name}=`)
+    if (parts.length === 2) return parts.pop().split(';').shift()
+  }
+
   const generationRanges = {
     1: [0, 151],
     2: [151, 100],
@@ -51,7 +57,16 @@
       shiny: shinyOdds < 8191 ? false: true
     }
     try {
-      const response = await axios.post('http://127.0.0.1:8000/pokemon/insert/', postData)
+      const response = await axios.post('http://127.0.0.1:8000/pokemon/insert/',
+        postData,
+        {
+          withCredentials: true,
+          headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Content-Type': 'application/json',
+          },
+        }
+      )
       ownedPokemon.fetchPokemon();
       window.alert("Pokemon added!")
       if (shinyOdds >= 8191) {

@@ -7,31 +7,25 @@
 </script>
 
 <template>
+  <Title>
+    <h1 class="flex flex-col items-center font-bold text-5xl text-gray-200 text-shadow-accent
+      rounded-3xl px-3 py-3 bg-black/50">Pokemon Tracker</h1>
+  </Title>
   <div v-if="!authStore.isAuthenticated">
-    <Title>
-      <h1 class="flex flex-col items-center font-bold text-5xl text-gray-200 text-shadow-accent
-        rounded-3xl px-3 py-3 bg-black/50">Please Register or Log In</h1>
-    </Title>
-    <div class="flex flex-col items-center">
-      <RouterLink to="/login" class="px-3 font-bold text-5xl hover:text-black hover:bg-white rounded-3xl
-      py-3 bg-black/50 text-white">Login</RouterLink>
-      <br>
-      <RouterLink to="/register" class="px-3 font-bold text-5xl hover:text-black hover:bg-white
-      rounded-3xl py-3 bg-black/50 text-white">Register</RouterLink>
+    <div class="flex flex-row justify-center">
+      <RouterLink to="/loginandregister" class="px-3 font-bold text-5xl hover:text-black hover:bg-white rounded-3xl
+      py-3 bg-black/50 text-white m-3">Login/Register</RouterLink>
     </div>
   </div>
   <div v-else>
-    <Title>
-      <h1 class="flex flex-col items-center font-bold text-5xl text-gray-200 text-shadow-accent
-        rounded-3xl px-3 py-3 bg-black/50">Pokemon Tracker</h1>
-    </Title>
     <div class="flex flex-col items-center">
       <h2 class="text-gray-200 font-semibold text-3xl text-center rounded-3xl bg-black/50 px-3
         py-3">Check your Pokemon!</h2>
       <Carousel class="scale-150 py-10"/>
     </div>
     <hr>
-    <div class="flex flex-col items-center">
+    </div>
+  <div class="flex flex-col items-center">
       <h2 class="text-white font-semibold text-3xl rounded-3xl text-center bg-black/50 py-3 px-3
         m-3">What is this?</h2>
       <p class="text-gray-200 bg-black/50 rounded-3xl text-center px-5">
@@ -41,6 +35,5 @@
 
   Morbi sagittis sit amet justo vitae lacinia. Vivamus placerat dui vel laoreet congue. Nulla id enim nulla. Donec malesuada risus vitae velit commodo laoreet. Nulla rutrum ipsum lorem, id finibus nisi dapibus aliquam. Cras dignissim neque id est lacinia viverra. In varius massa ut ligula dictum, at dapibus sem fringilla. Duis tincidunt pulvinar lacus, vitae venenatis felis tristique in. Ut laoreet, nisl vel auctor sollicitudin, massa ligula malesuada magna, et consequat metus metus ut mauris. Sed semper euismod neque, nec commodo sem aliquam at. Vestibulum condimentum nulla vitae leo maximus laoreet. Donec a nulla nunc. Morbi non placerat nunc. Morbi id tincidunt sapien. Aenean a ipsum velit. Nullam enim elit, pharetra vel velit at, ultrices laoreet quam.
       </p>
-    </div>
     </div>
 </template>
