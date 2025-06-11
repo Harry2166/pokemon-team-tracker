@@ -1,15 +1,41 @@
 <script setup>
-  import { onMounted } from 'vue';
+  import { ref, onMounted } from 'vue';
   import {defineProps, defineEmits, computed} from 'vue';
   import PokemonCard from '@/components/PokemonCard.vue'
   import Title from '@/components/Title.vue'
   import { profilePokemonStore } from '@/stores/pokemon'
+  import axios from 'axios'
 
   const props = defineProps({
     pokemon_id: String
   });
 
   const profilePokemon = profilePokemonStore();
+  const allEnglishPokedexEntries = ref([]);
+  const entry = ref("")
+  const entryGeneration = ref("")
+
+  const getRandomEntry = () => {
+    if (allEnglishPokedexEntries.value.length === 0) return;
+    const entryIndex = Math.floor(Math.random() * allEnglishPokedexEntries.value.length);
+    entry.value = allEnglishPokedexEntries.value[entryIndex].flavor_text
+    entryGeneration.value = allEnglishPokedexEntries.value[entryIndex].version.name
+    console.log(entryGeneration.value)
+  }
+
+  const getPokedexEntry = async () => {
+    try {
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${profilePokemon.species_name}`)
+      allEnglishPokedexEntries.value = res.data.flavor_text_entries.filter(entry => entry.language.name === "en")
+      getRandomEntry()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  onMounted(() => {
+    getPokedexEntry();
+  });
 
 </script>
 
@@ -35,14 +61,17 @@
         <div class="text-3xl absolute top-1/6 right-1/3 bg-black/50 text-gray-200 rounded-3xl
           font-semibold px-3 py-3 flex flex-col items-center">Stats:</div>
         <div class="bg-black/50 rounded-3xl px-3 py-3 absolute top-1/3 right-1/5 flex flex-col
-          items-center">
+          items-center m-5">
           <div v-if="profilePokemon.shiny" class="absolute top-5 right-5 scale-150">✨</div>
           <div class="text-white text-2xl">Species: {{profilePokemon.species_name}}</div>
           <div class="text-white text-2xl" v-if="profilePokemon.gender">Gender: ♂️</div>
           <div class="text-white text-2xl" v-else>Gender: ♀️</div>
-          <div class="text-white max-w-sm md:max-w-md lg:max-w-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          <br>
+          <div class="text-white text-2xl max-w-sm md:max-w-md lg:max-w-lg text-center">{{entry}}</div>
+          <div class="text-white text-xs py-1">Pokedex Entry from Pokemon {{entryGeneration}}</div>
         </div>
       </div>
     </div>
   </div>
 </template>
+

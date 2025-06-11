@@ -29,11 +29,17 @@
       <h2 class="text-white font-semibold text-3xl rounded-3xl text-center bg-black/50 py-3 px-3
         m-3">What is this?</h2>
       <p class="text-gray-200 bg-black/50 rounded-3xl text-center px-5">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nibh et condimentum lacinia, velit ligula lacinia odio, id euismod mi ipsum eget quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse aliquet, nisi et condimentum elementum, arcu elit tristique neque, non sollicitudin sem dolor consequat orci. Vivamus laoreet vehicula pharetra. Duis nisi felis, consequat sed enim vitae, semper vulputate est. Etiam non lectus et justo imperdiet mattis. Nullam pharetra urna a massa mattis mattis. Aliquam eleifend, libero ac volutpat consequat, massa mauris consectetur est, eu blandit ex nulla et mi. Fusce pulvinar lectus eu tincidunt fringilla.
+        Pokemon Tracker is a project that lets you track the pokemon that you have caught, right on
+        the web!
 
-  Sed auctor pulvinar odio sagittis luctus. Morbi mollis lacus ut libero faucibus tempor. Maecenas non felis lobortis, pulvinar magna id, tincidunt neque. Ut vitae nisl maximus, interdum metus feugiat, bibendum massa. Donec hendrerit justo eget lorem auctor iaculis. Donec vitae magna est. Duis vel ex accumsan metus porta mattis nec sed elit. Sed pretium arcu eget pulvinar elementum. In sed risus elementum, fermentum mi vel, pellentesque dolor. Donec vel venenatis purus.
+        <br>
 
-  Morbi sagittis sit amet justo vitae lacinia. Vivamus placerat dui vel laoreet congue. Nulla id enim nulla. Donec malesuada risus vitae velit commodo laoreet. Nulla rutrum ipsum lorem, id finibus nisi dapibus aliquam. Cras dignissim neque id est lacinia viverra. In varius massa ut ligula dictum, at dapibus sem fringilla. Duis tincidunt pulvinar lacus, vitae venenatis felis tristique in. Ut laoreet, nisl vel auctor sollicitudin, massa ligula malesuada magna, et consequat metus metus ut mauris. Sed semper euismod neque, nec commodo sem aliquam at. Vestibulum condimentum nulla vitae leo maximus laoreet. Donec a nulla nunc. Morbi non placerat nunc. Morbi id tincidunt sapien. Aenean a ipsum velit. Nullam enim elit, pharetra vel velit at, ultrices laoreet quam.
+        Think of it as your own pokedex that will NEVER die on you and will live forever on
+        the internet (or until the server that hosts this dies).
+
+        <br>
+        yeah i got nothing anymore
+
       </p>
     </div>
 </template>
