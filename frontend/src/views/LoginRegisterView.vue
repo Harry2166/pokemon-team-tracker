@@ -114,7 +114,7 @@ export default {
         <br>
         <br>
       </form>
-      <p v-if="registerError" class="text-3xl bg-black/50 rounded-3xl text-white">{{ registerError }}</p>
+      <p v-if="registerError" class="text-3xl bg-black/50 rounded-3xl text-white">Error: {{ registerError }}</p>
     </div>
   </div>
 </template>
