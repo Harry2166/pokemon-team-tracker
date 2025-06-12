@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import type { Router } from 'vue-router'
 
 export const useAuthStore = defineStore('auth', {
   state: () => {
@@ -19,7 +20,7 @@ export const useAuthStore = defineStore('auth', {
       })
     },
 
-    async login(email, password, router = null) {
+    async login(email: string, password: string, router: Router | null = null) {
       const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
       const response = await fetch(`http://${backendUrl}/api/login`, {
         method: 'POST',
@@ -49,7 +50,7 @@ export const useAuthStore = defineStore('auth', {
       }
     },
 
-    async logout(router = null) {
+    async logout(router: Router | null = null) {
       try {
         const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
         const response = await fetch(`http://${backendUrl}/api/logout`, {

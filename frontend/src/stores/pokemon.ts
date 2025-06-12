@@ -1,5 +1,6 @@
 
 import { defineStore } from 'pinia'
+import type { OwnedPokemon } from '@/types/Pokemon'
 import axios from 'axios'
 
 export const profilePokemonStore = defineStore('profilePokemon', {
@@ -27,7 +28,7 @@ export const profilePokemonStore = defineStore('profilePokemon', {
 
 export const ownedPokemonStore = defineStore('ownedPokemon', {
   state: () => ({
-    pokemonList: [],
+    pokemonList: [] as OwnedPokemon[],
     loading: false,
   }),
 
@@ -36,7 +37,7 @@ export const ownedPokemonStore = defineStore('ownedPokemon', {
       this.loading = true
       try {
         const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
-        const res = await axios.get(`http://${backendUrl}/pokemon/get_all/`, {
+        const res = await axios.get<OwnedPokemon[]>(`http://${backendUrl}/pokemon/get_all/`, {
           withCredentials: true
         })
         this.pokemonList = res.data
