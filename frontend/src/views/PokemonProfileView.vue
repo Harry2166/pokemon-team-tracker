@@ -1,6 +1,6 @@
 <script setup>
   import { ref, onMounted } from 'vue';
-  import {defineProps, defineEmits, computed} from 'vue';
+  import {computed} from 'vue';
   import PokemonCard from '@/components/PokemonCard.vue'
   import Title from '@/components/Title.vue'
   import { profilePokemonStore } from '@/stores/pokemon'
