@@ -12,15 +12,16 @@ export const useAuthStore = defineStore('auth', {
   },
   actions: {
     async setCsrfToken() {
-      console.log("tite")
-      await fetch('http://127.0.0.1:8000/api/set-csrf-token', {
+      const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
+      await fetch(`http://${backendUrl}/api/set-csrf-token`, {
         method: 'GET',
         credentials: 'include',
       })
     },
 
     async login(email, password, router = null) {
-      const response = await fetch('http://127.0.0.1:8000/api/login', {
+      const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
+      const response = await fetch(`http://${backendUrl}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +51,8 @@ export const useAuthStore = defineStore('auth', {
 
     async logout(router = null) {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/logout', {
+        const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
+        const response = await fetch(`http://${backendUrl}/api/logout`, {
           method: 'POST',
           headers: {
             'X-CSRFToken': getCSRFToken(),
@@ -75,7 +77,8 @@ export const useAuthStore = defineStore('auth', {
 
     async fetchUser() {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/user', {
+        const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
+        const response = await fetch(`http://${backendUrl}/api/user`, {
           credentials: 'include',
           headers: {
             'Content-Type': 'application/json',

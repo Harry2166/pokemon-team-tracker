@@ -31,7 +31,8 @@ export default {
     },
     async register() {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/register', {
+        const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
+        const response = await fetch(`http://${backendUrl}/api/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -47,7 +48,7 @@ export default {
         const data = await response.json()
 
         if (response.ok) {
-          this.success = ''
+          this.success = 'Registration Successful'
           this.registerError = ''
         } else {
           this.registerError = data.error || 'Registration failed'
@@ -93,7 +94,7 @@ export default {
           text-5xl px-3 py-1 absolute right-11/21">Login</button>
         <br>
       </form>
-      <p v-if="error" class="error">{{ loginError }}</p>
+      <p v-if="loginError" class="error">{{ loginError }}</p>
     </div>
     <div class="register flex flex-col items-center">
     <h1 class="text-5xl text-white">Register</h1>
@@ -115,6 +116,7 @@ export default {
         <br>
       </form>
       <p v-if="registerError" class="text-3xl bg-black/50 rounded-3xl text-white">Error: {{ registerError }}</p>
+      <p v-if="success" class="text-3xl bg-black/50 rounded-3xl text-white">{{ success }}</p>
     </div>
   </div>
 </template>

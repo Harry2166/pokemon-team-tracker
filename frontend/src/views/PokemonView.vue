@@ -8,6 +8,7 @@
   const ownedPokemon = ownedPokemonStore();
   const availablePokemon = availablePokemonStore();
   const pokemonGeneration = pokemonGenerationStore();
+  const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
 
   const getCookie = (name) => {
     const value = `; ${document.cookie}`
@@ -57,7 +58,7 @@
       shiny: shinyOdds < 8191 ? false: true
     }
     try {
-      const response = await axios.post('http://127.0.0.1:8000/pokemon/insert/',
+      const response = await axios.post(`http://${backendUrl}/pokemon/insert/`,
         postData,
         {
           withCredentials: true,

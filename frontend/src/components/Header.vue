@@ -18,7 +18,7 @@
       await availablePokemon.resetAvailablePokemonList()
       await generationPokemon.resetGeneration()
       setTimeout(() => {
-        this.$router.push('/loginandregister')
+        router.push('loginandregister')
       }, 1000)
     } catch (error) {
       console.error(error)

@@ -35,7 +35,8 @@ export const ownedPokemonStore = defineStore('ownedPokemon', {
     async fetchPokemon() {
       this.loading = true
       try {
-        const res = await axios.get('http://127.0.0.1:8000/pokemon/get_all/', {
+        const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
+        const res = await axios.get(`http://${backendUrl}/pokemon/get_all/`, {
           withCredentials: true
         })
         this.pokemonList = res.data
