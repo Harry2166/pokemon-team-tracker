@@ -32,7 +32,7 @@ export default {
     async register() {
       try {
         const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
-        const response = await fetch(`${backendUrl}/api/register`, {
+        const response = await fetch(`${backendUrl}/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
