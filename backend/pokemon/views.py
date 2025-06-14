@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_protect
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
@@ -15,7 +14,6 @@ def get_all_pokemon(request):
     return Response(serialized_pokemon.data)
 
 @api_view(['POST'])
-@csrf_protect
 @permission_classes([IsAuthenticated])
 def insert_pokemon(request):
     request_data_copy = request.data.copy()
