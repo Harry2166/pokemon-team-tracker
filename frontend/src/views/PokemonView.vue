@@ -1,6 +1,7 @@
 <script setup>
   import { ref, onMounted, watch } from 'vue';
   import { availablePokemonStore, ownedPokemonStore, pokemonGenerationStore } from '@/stores/pokemon'
+  import { getCSRFToken } from '@/stores/auth'
   import PokemonCard from '@/components/PokemonCard.vue'
   import Title from '@/components/Title.vue'
   import axios from 'axios'
@@ -9,12 +10,6 @@
   const availablePokemon = availablePokemonStore();
   const pokemonGeneration = pokemonGenerationStore();
   const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
-
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`
-    const parts = value.split(`; ${name}=`)
-    if (parts.length === 2) return parts.pop().split(';').shift()
-  }
 
   const generationRanges = {
     1: [0, 151],
@@ -58,12 +53,12 @@
       shiny: shinyOdds < 8191 ? false: true
     }
     try {
-      const response = await axios.post(`https://${backendUrl}/pokemon/insert/`,
+      const response = await axios.post(`${backendUrl}/pokemon/insert/`,
         postData,
         {
           withCredentials: true,
           headers: {
-            'X-CSRFToken': getCookie('csrftoken'),
+            'X-CSRFToken': getCSRFToken(),
             'Content-Type': 'application/json',
           },
         }
