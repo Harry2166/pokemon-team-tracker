@@ -14,6 +14,7 @@ def get_all_pokemon(request):
     return Response(serialized_pokemon.data)
 
 @api_view(['POST'])
+@csrf_protect
 @permission_classes([IsAuthenticated])
 def insert_pokemon(request):
     request_data_copy = request.data.copy()
@@ -22,4 +23,4 @@ def insert_pokemon(request):
     if serialized_pokemon.is_valid():
         serialized_pokemon.save()
         return Response(serialized_pokemon.data, status=status.HTTP_201_CREATED)
-    return Response(serialized_pokemon.errors, status=status.HTTP_201_CREATED)
+    return Response(serialized_pokemon.errors, status=status.HTTP_400_CREATED)

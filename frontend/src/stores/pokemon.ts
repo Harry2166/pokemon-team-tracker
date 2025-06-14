@@ -37,7 +37,7 @@ export const ownedPokemonStore = defineStore('ownedPokemon', {
       this.loading = true
       try {
         const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL;
-        const res = await axios.get<OwnedPokemon[]>(`http://${backendUrl}/pokemon/get_all/`, {
+        const res = await axios.get<OwnedPokemon[]>(`${backendUrl}/pokemon/get_all/`, {
           withCredentials: true
         })
         this.pokemonList = res.data

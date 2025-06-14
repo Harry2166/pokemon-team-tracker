@@ -58,7 +58,7 @@
       shiny: shinyOdds < 8191 ? false: true
     }
     try {
-      const response = await axios.post(`http://${backendUrl}/pokemon/insert/`,
+      const response = await axios.post(`https://${backendUrl}/pokemon/insert/`,
         postData,
         {
           withCredentials: true,
